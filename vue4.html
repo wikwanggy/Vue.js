@@ -1,0 +1,46 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>    
+</head>
+<body>
+    <div id="app">       
+        <button @click="awesome=!awesome">전환</button>
+        <h1 v-if="awesome">Vue는 정말 멋지죠!</h1>
+        <h1 v-else>아닌가요?</h1>
+        <input v-model="type">
+        <div v-if="type==='A'">
+            A
+        </div>
+        <div v-else-if="type==='B'">
+            B
+        </div>
+        <div v-else-if="type==='C'">
+            C
+        </div>
+        <div v-else>
+           NOT A/B/C
+        </div>
+
+        <div v-show="type==='A'"></div>
+        <p></p>
+    </div>
+    
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {    
+           awesome:true,
+           type:'A'
+        }
+    })
+</script>
+<style>
+   
+</style>
+</html>

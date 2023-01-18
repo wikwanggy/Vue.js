@@ -1,0 +1,77 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>    
+</head>
+<body>
+    <div id="app">       
+
+            <input v-model="name" placeholder="펫 이름">
+            <input v-model="brith_date" placeholder="생일">  
+            <input v-model="owner" placeholder="주인 이름"> 
+            <button @click="addPets">등록</button>
+     
+            <li v-for="pet in pets">
+               등록번호 :{{pet.id}}, 펫 이름 : {{pet.name}}, 펫 생일 : {{pet.brithdate}}, 주인 이름 :{{pet.owner}}
+                
+            </li>
+            <li v-for="winner in winners">
+                당첨자 펫 이름 : {{winner.name}}
+            </li>
+
+    </div>
+    
+</body>
+<script>
+    let id= 1
+    var app = new Vue({
+        el: '#app',
+        data: {   
+                id : 1 ,
+                name:'',
+                brith_date:'',
+                owner:'',
+                pets:[{
+                    id:1,
+                    name:'Happy',
+                    brith_date:'2012',
+                    owner : 'jhone'
+                }]
+        },
+        methods:{
+            addPets(){
+                const newPet ={
+                    id : this.id++,
+                    name: this.name,
+                    brithdate : this.brith_date,
+                    owner : this.owner
+                }
+                this.pets.push(newPet)
+            }
+           
+            
+        },
+        computed:{
+            winners(){
+                return this.pets.filter(pet =>{
+                    return pet.id % 3 === 0
+                })
+            }
+        },
+        watch:{
+            id(newValue, oldValue){
+                if(newValue % 3 ==1){
+                    alert("당첨을축하합니다")
+                }
+            }
+        }
+    })
+</script>
+<style>
+   
+</style>
+</html>

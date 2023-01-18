@@ -1,0 +1,53 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>    
+</head>
+<body>
+    <div id="app">  
+        <template v-for="item in items">
+            <li>
+                {{item.title}}
+            </li>
+            <li>
+                {{item.message}}
+            </li>
+        </template>
+        <li v-for="(item,index) in items">
+            {{index}}:{{item.message}}
+        </li>
+
+        <li v-for="(value, key, index) in myObject">
+           d+{{index}} - {{key}} : {{value}}
+        </li>
+
+        <li v-for = "i in 10">
+            {{i}}
+        </li>
+    </div>
+    
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {    
+            items : [
+                {message: 'Foo'},
+                {message: 'Bar'}
+            ],
+            myObject:{
+                title :'Vue에서 목록을 작성하는 방법',
+                author :'홍길동',
+                publicshedAt :'2016-04-10'
+            }
+        }
+    })
+</script>
+<style>
+   
+</style>
+</html>

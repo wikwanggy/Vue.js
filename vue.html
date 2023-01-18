@@ -1,0 +1,46 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>    
+</head>
+<body>
+    <div id="app">       
+        <span v-bind:class="classObj" v-bind:style="{color:activeColor}">
+            클래스 바인딩
+        </span>
+        <span v-bind:style="styleObj">
+            스타일바인딩
+        </span>
+    </div>
+    
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {    
+            isActive: false,
+            classObj : {
+                isActive:true,
+                HasError:false
+            },
+            activeColor:'blue',
+            styleObj:{
+                color:'red',
+                'font-size':'40px'
+            }
+        }
+    })
+</script>
+<style>
+    .isActive{
+        font-size:  32px;
+    }
+    .HasError{
+        font-size:  32px;
+    }
+</style>
+</html>
